@@ -1,6 +1,9 @@
 :- use_module(library(djson)).
 :- use_module(library(delay)).
 
+:- multifile delay:mode/1.
+delay:mode(system:atom(nonvar)).
+
 :- multifile djson:json//1.
 djson:json(point(X,Y)) -->
     json({ x: X, y: Y }).
