@@ -73,6 +73,10 @@ finalize(_).
 %      djson:json(person(Name,Age)) -->
 %          json({ name: Name, age: Age }).
 :- multifile json//1.
+json(X, X, _) :-
+    member(TypeCheck, [atom, integer, float]),
+    call(TypeCheck, X),
+    !.
 json({}, json([]), _).
 json({Pairs}, json(J0), json(J)) :-
     ( var(Pairs) ->
@@ -91,7 +95,7 @@ json([], [], _).
 json([H|T], [JH|JT], _) :-
     json(H, JH, _),
     json(T, JT, _).
-json(X,X,_).
+json(json(J),json(J),_).
 
 
 eq_colon(K=V0,K:V) :-
