@@ -35,7 +35,7 @@ Both library(http/json) and library(http/json_convert) facilitate conversion bet
 
 # Changes in this Version
 
-  * Support nested arrays
+  * Improved performance for large data structures
 
 # Installation
 
