@@ -1,8 +1,8 @@
 name(djson).
 title('Declarative JSON').
 
-version('0.0.1').
-download('http://packs.ndrix.com/djson/djson-0.0.1.tgz').
+version('0.0.2').
+download('http://packs.ndrix.com/djson/djson-0.0.2.tgz').
 
 requires(delay).
 requires(list_util).
