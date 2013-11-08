@@ -87,6 +87,10 @@ json({Pairs}, json(J0), json(J)) :-
         json(Value0, Value, _),
         json({Rest}, json(J1), json(J))
     ).
+json([], [], _).
+json([H|T], [JH|JT], _) :-
+    json(H, JH, _),
+    json(T, JT, _).
 json(X,X,_).
 
 

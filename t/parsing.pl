@@ -88,3 +88,15 @@ djson:json(city(Name,Mayor)) -->
          ),
     Xs == [ [a,2,c,4.0]
           ].
+
+'parsing nested JSON array' :-
+    setof( X
+         , json_term('[{"x":1, "y":2}, {"x":3, "y":4}]', X)
+         , Xs
+         ),
+
+    % there are dozens of legitimate combinations.
+    % check a few of the most important ones.
+    memberchk([json([x=1,y=2]),json([x=3,y=4])], Xs),
+    memberchk([{x:1,y:2},{x:3,y:4}], Xs),
+    memberchk([point(1,2), point(3,4)], Xs).

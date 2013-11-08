@@ -34,3 +34,7 @@ djson:json(person(First,Last)) -->
 'serializing JSON array (compound term)' :-
     json_term(Json, person(john, doe)),
     Json == '["john", "doe" ]'.
+
+'serializing JSON array (multiple points)' :-
+    json_term(Json, [point(1,2), point(3,4)]),
+    Json == '[ {"x":1, "y":2},  {"x":3, "y":4} ]'.
